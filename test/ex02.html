@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const listCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        function generateId(length, prefix = '') {
+            if (!Number.isInteger(length) || length <= 0 || length >= 100) {
+                return "Length must be an integer smaller 100";
+            }
+
+            if (typeof prefix !== 'string' || prefix.trim().length >= 10) {
+                return "Prefix must be a string and length must be smaller than 10";
+            }
+
+            let id = prefix;
+            for (let i = 0; i < length - prefix.length; i++) {
+                id += listCharacters[(Math.floor(Math.random() * listCharacters.length))];
+            }
+
+            return id;
+        }
+
+        console.log(generateId(8, "user"));
+    </script>
+</body>
+</html>

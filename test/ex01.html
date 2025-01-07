@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const printChristmasTree = (n, char) => {
+            if(!Number.isInteger(n) || n > 100 || n <= 0 || typeof char != "string" ||  char.trim().length != 1)
+                return "Invalid";
+            for (let i = 0; i < n; i++) {
+                console.log(" ".repeat(n - i - 1) + char.repeat(2 * i + 1));
+            }
+            console.log(' '.repeat(n - 1) + char);
+        }
+        printChristmasTree(5, "*");
+        printChristmasTree(4, "o");
+    </script>
+</body>
+</html>

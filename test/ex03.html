@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let highlightKeyword = (content, keyword) => {
+
+            if(typeof keyword !== 'string' || typeof content !== 'string' 
+                                           || keyword.trim().length == 0 
+                                           || content.trim().length == 0) {
+                return "Invalid";
+            }
+
+            const CONTENT = content.toUpperCase();
+            if(CONTENT.indexOf(keyword.toUpperCase()) == -1) {
+                return content;
+            }
+
+           const keywords = content.match(new RegExp(`${keyword}`, "gi"));
+           keywords.forEach(k => content = content.replaceAll(k, `<strong>${k}</strong>`));
+           console.log(content);
+           return content;
+        }
+
+        highlightKeyword("Học lập trình tại F8 rất thú vị, bạn có biết điều gì THÚ VỊ hơn không?", "thú vỊ");
+    </script>
+</body>
+</html>
